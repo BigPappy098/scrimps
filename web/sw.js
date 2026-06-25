@@ -1,5 +1,5 @@
 /* Simple offline cache for the app shell. Bump CACHE on every release. */
-const CACHE = "theater-notes-v1";
+const CACHE = "theater-notes-v2";
 const ASSETS = [
   ".",
   "index.html",
@@ -12,8 +12,12 @@ const ASSETS = [
 ];
 
 self.addEventListener("install", (event) => {
+  // Cache assets individually so one redirected/blocked asset (e.g. when served
+  // via a CDN proxy) doesn't fail the whole install.
   event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(ASSETS)).then(() => self.skipWaiting())
+    caches.open(CACHE)
+      .then((cache) => Promise.allSettled(ASSETS.map((a) => cache.add(a))))
+      .then(() => self.skipWaiting())
   );
 });
 
