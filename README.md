@@ -1,8 +1,23 @@
 # Theater Notes
 
-An iOS app for taking notes during theater rehearsals and tech. Hold a
-walky-talky button, speak a note, release. The app records each note, transcribes
-it on-device, and files it under the cast member you addressed it to.
+Note taking for theater rehearsals and tech. Hold a walky-talky button, speak a
+note, release. Each note is recorded, transcribed, and filed under the cast
+member you addressed it to.
+
+There are two versions in this repo:
+
+- **`web/`** — a mobile-friendly **web app** (PWA). Runs in any browser on any
+  device, installable to your home screen, works offline, no Mac required. See
+  [`web/README.md`](web/README.md). This is the easiest way to use it anywhere.
+- **iOS app** (this folder) — a native SwiftUI version. Docs below.
+
+---
+
+## iOS app
+
+A native iOS app. Hold a walky-talky button, speak a note, release. The app
+records each note, transcribes it on-device, and files it under the cast member
+you addressed it to.
 
 ## How it works
 
